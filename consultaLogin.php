@@ -1,18 +1,18 @@
 <?php
 $hostname = "localhost";
-$database = "musicapp";
+$database = "prueba2";
 $username = "root";
 $password = "";
 
 $json = array();
 
-if ( isset( $_GET[ "username" ] ) && isset( $_GET[ "pass" ] ) ) {
-	$user = $_GET[ 'username' ];
+if ( isset( $_GET[ "user" ] ) && isset( $_GET[ "pass" ] ) ) {
+	$user = $_GET[ 'user' ];
         $pass = $_GET[ 'pass' ];
 
 	$conexion = mysqli_connect( $hostname, $username, $password, $database );
 
-	$buscar = "SELECT * FROM usuario WHERE username= '{$user}' and pass= '".md5($pass)."'";
+	$buscar = "SELECT * FROM usuario WHERE user= '{$user}' and pass= '".$pass."'";
 
 	$resultado = mysqli_query( $conexion, $buscar );
 
@@ -20,6 +20,7 @@ if ( isset( $_GET[ "username" ] ) && isset( $_GET[ "pass" ] ) ) {
 		$json[ 'usuario' ][] = $registro;
 
 	} else {
+		$resulta[ "idUsuario" ] = "No Registra";
 		$resulta[ "Run" ] = "No Registra";
 		$resulta[ "Nombre" ] = "NO registra";
 		$resulta[ "ApPaterno" ] = "NO registra";
@@ -27,7 +28,7 @@ if ( isset( $_GET[ "username" ] ) && isset( $_GET[ "pass" ] ) ) {
 		$resulta[ "Direccion" ] = "NO registra";
 		$resulta[ "Email" ] = "NO registra";
 		$resulta[ "Nacimiento" ] = "NO registra";
-		$resulta[ "username" ] = "NO registra";
+		$resulta[ "user" ] = "NO registra";
 		$resulta[ "pass" ] = "NO registra";
 		$resulta[ "Perfil" ][] = "NO registra";
 	}

@@ -1,11 +1,11 @@
 <?php
 $hostname="localhost";
-$database="musicapp";
+$database="prueba2";
 $username="root";
 $password="";
 
 $json=array();
- if(isset($_GET["Run"]) && isset($_GET["Nombre"]) && isset($_GET["ApPaterno"]) && isset($_GET["ApMaterno"]) && isset($_GET["Direccion"]) && isset($_GET["Email"]) && isset($_GET["Nacimiento"]) && isset($_GET["username"]) && isset($_GET["pass"])&& isset($_GET["Perfil"])){
+ if(isset($_GET["Run"]) && isset($_GET["Nombre"]) && isset($_GET["ApPaterno"]) && isset($_GET["ApMaterno"]) && isset($_GET["Direccion"]) && isset($_GET["Email"]) && isset($_GET["Nacimiento"]) && isset($_GET["user"]) && isset($_GET["pass"])&& isset($_GET["Perfil"])){
 	 
   $rut=$_GET['Run'];
   $nombre=$_GET['Nombre'];
@@ -14,19 +14,19 @@ $json=array();
   $direccion=$_GET['Direccion'];
   $mail=$_GET['Email'];
   $nacimiento=$_GET['Nacimiento'];
-  $user=$_GET['username'];
+  $user=$_GET['user'];
   $pass=$_GET['pass'];
   $perfil=$_GET['Perfil'];
 
 $conexion=new mysqli($hostname,$username,$password,$database);
 
 	 
-$insert ="INSERT INTO usuario (Run,Nombre,ApPaterno,ApMaterno,Direccion,Email, Nacimiento,username,pass,Perfil) values ('{$rut}','{$nombre}','{$ApPaterno}','{$ApMaterno}','{$direccion}','{$mail}','{$nacimiento}','{$user}','".md5($pass)."','{$perfil}')";
+$insert ="INSERT INTO usuario (Run,Nombre,ApPaterno,ApMaterno,Direccion,Email, Nacimiento,user,pass,Perfil) values ('{$rut}','{$nombre}','{$ApPaterno}','{$ApMaterno}','{$direccion}','{$mail}','{$nacimiento}','{$user}','".$pass."','{$perfil}')";
 
   if($conexion->query($insert)===TRUE){
    
    
-   $resultado = $conexion->query("SELECT * FROM usuario WHERE Run = '".md5($rut)."'");
+   $resultado = $conexion->query("SELECT * FROM usuario WHERE Run = '".$rut."'");
   
    if($registro=mysqli_fetch_array($resultado)){
     $json['usuario'][]=$registro;
@@ -42,7 +42,7 @@ $insert ="INSERT INTO usuario (Run,Nombre,ApPaterno,ApMaterno,Direccion,Email, N
 	  $resulta["Direccion"]="NO registra";
 	  $resulta["Email"]="NO registra";
 	  $resulta["Nacimiento"]="NO registra";
-	  $resulta["username"]="NO registra";
+	  $resulta["user"]="NO registra";
 	  $resulta["pass"]="NO registra";
 	  $resulta["Perfil"]="NO registra";
 	  
@@ -57,7 +57,7 @@ $insert ="INSERT INTO usuario (Run,Nombre,ApPaterno,ApMaterno,Direccion,Email, N
 	  $resulta["Direccion"]="WS NO retorna";
 	  $resulta["Email"]="WS NO retorna";
 	  $resulta["Nacimiento"]="WS NO retorna";
-	  $resulta["username"]="WS NO retorna";
+	  $resulta["user"]="WS NO retorna";
 	  $resulta["pass"]="WS NO retorna";
 	  $resulta["Perfil"]="WS NO retorna";
   $json['usuario'][]=$resulta;

@@ -1,6 +1,6 @@
 <?php
 $hostname = "localhost";
-$database = "musicapp";
+$database = "prueba2";
 $username = "root";
 $password = "";
 
@@ -19,6 +19,7 @@ if ( isset( $_GET[ "Run" ] ) ) {
 		$json[ 'usuario' ][] = $registro;
 
 	} else {
+		$resulta[ "idUsuario" ] = "No Registra";
 		$resulta[ "Run" ] = "No Registra";
 		$resulta[ "Nombre" ] = "NO registra";
 		$resulta[ "ApPaterno" ] = "NO registra";
@@ -26,7 +27,7 @@ if ( isset( $_GET[ "Run" ] ) ) {
 		$resulta[ "Direccion" ] = "NO registra";
 		$resulta[ "Email" ] = "NO registra";
 		$resulta[ "Nacimiento" ] = "NO registra";
-		$resulta[ "username" ] = "NO registra";
+		$resulta[ "user" ] = "NO registra";
 		$resulta[ "pass" ] = "NO registra";
 		$resulta[ "Perfil" ] = "NO registra";
 	 	$json['usuario'][]= $resulta;

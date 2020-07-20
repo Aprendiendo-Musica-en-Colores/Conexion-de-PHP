@@ -1,6 +1,6 @@
 <?php
 $hostname = "localhost";
-$database = "musicapp";
+$database = "prueba2";
 $username = "root";
 $password = "";
 

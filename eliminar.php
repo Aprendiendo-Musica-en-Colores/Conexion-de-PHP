@@ -1,6 +1,6 @@
 <?php
 $hostname="localhost";
-$database="musicapp";
+$database="prueba2";
 $username="root";
 $password="";
 
@@ -20,6 +20,7 @@ $eliminar ="DELETE FROM usuario WHERE Run='".$rut."'";
    echo json_encode($json);
    
   }else{
+	  $resulta["idUsuario"]="NO elimina";
 	  $resulta["Run"]="NO elimina";
    	  $resulta["Nombre"]="NO elimina";
    	  $resulta["ApPaterno"]="NO elimina";
@@ -27,7 +28,7 @@ $eliminar ="DELETE FROM usuario WHERE Run='".$rut."'";
 	  $resulta["Direccion"]="NO elimina";
 	  $resulta["Email"]="NO elimina";
 	  $resulta["Nacimiento"]="NO elimina";
-	  $resulta["username"]="NO elimina";
+	  $resulta["user"]="NO elimina";
 	  $resulta["pass"]="NO elimina";
 	  $resulta["Perfil"]="NO elimina";
 
@@ -42,7 +43,7 @@ $eliminar ="DELETE FROM usuario WHERE Run='".$rut."'";
 	  $resulta["Direccion"]="WS NO retorna";
 	  $resulta["Email"]="WS NO retorna";
 	  $resulta["Nacimiento"]="WS NO retorna";
-	  $resulta["username"]="WS NO retorna";
+	  $resulta["user"]="WS NO retorna";
 	  $resulta["pass"]="WS NO retorna";
 	  $resulta["Perfil"]="WS NO retorna";
   $json['usuario'][]=$resulta;

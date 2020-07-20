@@ -1,6 +1,6 @@
 <?php
 $hostname = "localhost";
-$database = "musicapp";
+$database = "prueba2";
 $username = "root";
 $password = "";
 
@@ -17,7 +17,7 @@ $password = "";
 	$pass = $_POST[ 'pass' ];
 	$perfil = $_POST[ 'Perfil' ];
 
-	$sql = "UPDATE usuario SET Nombre= ? , ApPaterno= ? , ApMaterno= ?, Direccion= ?, Email= ? , Nacimiento = ? , username = ? , pass = ? , Perfil = ? WHERE Run = ?";
+	$sql = "UPDATE usuario SET Nombre= ? , ApPaterno= ? , ApMaterno= ?, Direccion= ?, Email= ? , Nacimiento = ? , user = ? , pass = ? , Perfil = ? WHERE Run = ?";
 
 $stm=$conexion->prepare($sql);
 $stm->bind_param('sssssssssi',$nombre,$ApPaterno,$ApMaterno,$direccion,$mail,$nacimiento,$user,$pass,$perfil,$rut);
